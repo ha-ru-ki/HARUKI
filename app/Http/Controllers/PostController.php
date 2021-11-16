@@ -31,6 +31,7 @@ class PostController extends Controller
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
     }
+
    
    public function edit(Post $post)
    {
@@ -39,10 +40,10 @@ class PostController extends Controller
    
    public function update(PostRequest $request, Post $post)
    {
+
     $input_post = $request['post'];
     $post->fill($input_post)->save();
-
-    return redirect('/posts/' . $post->id);
+     
    }
    
    public function delete(Post $post)
@@ -50,5 +51,6 @@ class PostController extends Controller
     $post->delete();
     return redirect('/');
 }
+
 }
 
