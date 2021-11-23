@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+@extends('layouts.app')　　　　　　　　　　　　　　　　　　
+
+@section('content')
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -13,6 +17,7 @@
     </head>
     
     <body>
+      
         <h1> Blog Name </h1>
         <p class="edit">[<a href="/posts/{{ $post->id }}/edit">edit</a>]</p>
         <form action="/posts/{{ $post->id }}" id="form_delete" method="post">   
@@ -31,6 +36,8 @@
          
          <div class="back"><a href="/">back</a>   </div>
          
+          <small>{{ $post->user->name }}</small>
+         
          <script>
             function deletePost(e){
                 "use strict";
@@ -43,3 +50,5 @@
 
     </body>
 </html>
+
+@endsection
